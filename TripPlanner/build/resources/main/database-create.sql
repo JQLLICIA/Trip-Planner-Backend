@@ -36,3 +36,15 @@ CREATE TABLE fav_positions
     fav_positions   JSONB                   NOT NULL,
     CONSTRAINT fk_fav_position_user FOREIGN KEY (backend_user_id) REFERENCES users (backend_user_id) ON DELETE CASCADE
 );
+
+INSERT INTO users (shown_user_id, email, password)
+VALUES ('J', 'email@gmail.com', 'password'),
+       ('J1', 'email1@gmail.com', 'password1'),
+       ('J2', 'email2@gmail.com', 'password2');
+
+INSERT INTO plans (backend_user_id, start_date, end_date, city)
+VALUES (1, '2023-10-01', '2023-10-02', '{}'::jsonb),
+       (1, '2023-10-01', '2023-10-03', '{}'::jsonb),
+       (2, '2023-11-01', '2023-12-02', '{}'::jsonb),
+       (2, '2023-11-01', '2023-12-02', '{}'::jsonb);
+
