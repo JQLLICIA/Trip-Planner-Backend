@@ -6,8 +6,9 @@ DROP TABLE IF EXISTS fav_positions CASCADE;
 CREATE TABLE users
 (
     backend_user_id SERIAL      PRIMARY KEY NOT NULL,
-    shown_user_id   VARCHAR(50)             NOT NULL,
-    email           VARCHAR(50) UNIQUE      NOT NULL
+    shown_user_id   TEXT                    NOT NULL,
+    email           TEXT        UNIQUE      NOT NULL,
+    password        TEXT                    NOT NULL
 );
 
 CREATE TABLE plans
