@@ -1,4 +1,12 @@
 package com.example.tripplanner.entity;
 
-public record UserEntity() {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("users")
+public record UserEntity(
+        @Id Long id,
+        Long customerId,
+        Double totalPrice
+) {
 }
