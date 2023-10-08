@@ -23,7 +23,7 @@ CREATE TABLE plans
 
 CREATE TABLE daily_trips
 (
-    plan_id_date    TEXT        PRIMARY KEY NOT NULL,
+    daily_trip_id   SERIAL      PRIMARY KEY NOT NULL,
     plan_id         INTEGER                 NOT NULL,
     date            DATE                    NOT NULL,
     daily_positions JSONB                   NOT NULL,
@@ -48,12 +48,12 @@ VALUES (1, '2023-10-01', '2023-10-02', '{}'::jsonb),
        (2, '2023-11-01', '2023-12-02', '{}'::jsonb),
        (2, '2023-11-01', '2023-12-02', '{}'::jsonb);
 
-INSERT INTO daily_trips (plan_id_date, plan_id, date, daily_positions)
-VALUES (1 || ':' || '2023-10-01', 1, '2023-10-01', '{}'::jsonb),
-       (1 || ':' || '2023-10-02', 1, '2023-10-02', '{}'::jsonb),
-       (2 || ':' || '2023-10-01', 2, '2023-10-01', '{}'::jsonb),
-       (2 || ':' || '2023-10-02', 2, '2023-10-02', '{}'::jsonb),
-       (2 || ':' || '2023-10-03', 2, '2023-10-03', '{}'::jsonb);
+INSERT INTO daily_trips (plan_id, date, daily_positions)
+VALUES (1, '2023-10-01', '{}'::jsonb),
+       (1, '2023-10-02', '{}'::jsonb),
+       (2, '2023-10-01', '{}'::jsonb),
+       (2, '2023-10-02', '{}'::jsonb),
+       (2, '2023-10-03', '{}'::jsonb);
 
 INSERT INTO fav_positions (backend_user_id, fav_positions)
 VALUES (1, '{}'::jsonb),
