@@ -5,15 +5,20 @@ import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public interface PlanRepository extends ListCrudRepository<PlanEntity, Integer>{
 
     PlanEntity getByPlanId(Integer planId);
-    List<PlanEntity> getByBackendUserId(Integer backendUserId);
+    List<PlanEntity> findByUsername(String username);
 
     @Modifying
     @Query("UPDATE plans SET start_date = :newStartDate, end_date=:newEndDate WHERE plan_id = :planId")
-    void updatePlanDateRange(Integer planId, Date newStartDate, Date newEndDate);
+    void updateByPlanId(Integer planId, LocalDate newStartDate, LocalDate newEndDate);
+
+    @Modifying
+    @Query("DELETE FROM plans WHERE plan_id = :planId")
+    void deleteByPlanId(Integer planId);
 }

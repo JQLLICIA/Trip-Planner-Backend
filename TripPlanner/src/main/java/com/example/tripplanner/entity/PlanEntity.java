@@ -3,14 +3,14 @@ package com.example.tripplanner.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Table("plans")
 public record PlanEntity(
         @Id Integer planId,
-        Integer backendUserId,
-        Date startDate,
-        Date endDate,
+        String username,
+        LocalDate startDate,
+        LocalDate endDate,
         String city
 ) {
 
