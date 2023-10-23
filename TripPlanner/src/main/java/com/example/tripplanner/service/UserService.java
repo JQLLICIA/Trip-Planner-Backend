@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+
 @Service
 public class UserService {
 
@@ -43,6 +44,7 @@ public class UserService {
                 .password(passwordEncoder.encode(password))
                 .roles("USER")
                 .build();
+        System.out.println("OK");
         userDetailsManager.createUser(user);
         userRepository.updateEmailByUsername(username, email);
     }

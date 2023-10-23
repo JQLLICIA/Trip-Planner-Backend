@@ -15,6 +15,6 @@ public interface UserRepository extends ListCrudRepository<UserEntity, Integer>{
     void updatePasswordByUsername(String username, String newPassword);
 
     @Modifying
-    @Query("UPDATE users SET email = :newEmail WHERE username = :Username")
+    @Query("UPDATE users SET email = :newEmail WHERE username = :username")
     void updateEmailByUsername(String username, String newEmail);
 }

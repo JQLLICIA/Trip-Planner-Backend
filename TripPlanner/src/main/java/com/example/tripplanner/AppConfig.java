@@ -47,10 +47,10 @@ public class AppConfig {
     UserDetailsManager users(DataSource dataSource) {
         JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
         userDetailsManager.setCreateUserSql(
-                "INSERT INTO users (username, password) VALUES (?,?)"
+                "INSERT INTO users (username, password, enabled) VALUES (?,?,?)"
         );
         userDetailsManager.setCreateAuthoritySql(
-                "INSERT INTO authorities (email, authority) VALUES (?,?,>)"
+                "INSERT INTO authorities (username, authority) VALUES (?,?)"
         );
         return userDetailsManager;
     }

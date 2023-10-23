@@ -35,7 +35,6 @@ public class PlanService {
         return dailyTripRepository.findByPlanIdAndDate(planId, date);
     }
 
-    /*Q*/
     @Transactional
     public void changeDailyTrip(Integer planId, LocalDate date, String dailyPositions) {
         PlanEntity plan = planRepository.getByPlanId(planId);
