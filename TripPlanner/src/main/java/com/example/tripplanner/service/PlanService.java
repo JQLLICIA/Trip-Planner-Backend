@@ -60,6 +60,7 @@ public class PlanService {
         {
             dailyTripRepository.deleteByTimePeriod(newEndDate.plusDays(1), newEndDate);
         }
+        planRepository.updateByPlanId(planId, newStartDate, newEndDate);
     }
 
 }
