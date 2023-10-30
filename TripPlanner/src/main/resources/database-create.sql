@@ -46,28 +46,3 @@ CREATE TABLE authorities
     authority       TEXT                        NOT NULL,
     CONSTRAINT fk_authorities_user FOREIGN KEY (username) REFERENCES users (username) ON DELETE CASCADE
 );
-
-INSERT INTO users (username, email, password)
-VALUES ('J', 'email@gmail.com', 'password'),
-       ('J1', 'email1@gmail.com', 'password1'),
-       ('J2', 'email2@gmail.com', 'password2');
-
-INSERT INTO users (username, password)
-VALUES ('T', 'password-t');
-
-INSERT INTO plans (username, start_date, end_date, city)
-VALUES ('J', '2023-10-01', '2023-10-02', '{}'),
-       ('J', '2023-10-01', '2023-10-03', '{}'),
-       ('J1', '2023-11-01', '2023-12-02', '{}'),
-       ('J1', '2023-11-01', '2023-12-02', '{}');
-
-INSERT INTO daily_trips (plan_id, date, daily_positions)
-VALUES (1, '2023-10-01', '{}'),
-       (1, '2023-10-02', '{}'),
-       (2, '2023-10-01', '{}'),
-       (2, '2023-10-02', '{}'),
-       (2, '2023-10-03', '{}');
-
-INSERT INTO fav_positions (username, fav_positions)
-VALUES ('J', '{}'),
-       ('J1', '{}');
